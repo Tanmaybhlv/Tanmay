@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanmay Bhalavi — Data Engineer</title>
+  <meta name="description" content="Tanmay Bhalavi - Data Engineer at Opendoor. Building data platforms, pipelines, and infrastructure at scale.">
+  <link rel="icon" type="image/png" href="assets/img/headerphoto-removebg.png">
+  <link rel="apple-touch-icon" href="assets/img/headerphoto-removebg.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Inter:wght@300;400;500;600;700;800;900&family=Nunito+Sans:wght@400;500;600;700;800;900;1000&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-counter" id="loaderCounter">0</div>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderBarFill"></div>
+      </div>
+      <div class="loader-text">
+        <span class="loader-char">T</span><span class="loader-char">A</span><span class="loader-char">N</span><span class="loader-char">M</span><span class="loader-char">A</span><span class="loader-char">Y</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Cursor follower -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Floating particles canvas -->
+  <canvas class="particles" id="particles"></canvas>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav-logo magnetic" data-strength="20">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <rect width="40" height="40" rx="8" fill="#7B9FFF" opacity="0.1"/>
+        <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" fill="#7B9FFF" font-family="Space Grotesk" font-weight="700" font-size="16">TB</text>
+      </svg>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#publications" class="nav-link">Publications</a>
+      <a href="#leadership" class="nav-link">Leadership</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-menu" id="navMenu" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu-links">
+      <a href="#about" class="mobile-link" data-index="01">About</a>
+      <a href="#experience" class="mobile-link" data-index="02">Experience</a>
+      <a href="#projects" class="mobile-link" data-index="03">Projects</a>
+      <a href="#skills" class="mobile-link" data-index="04">Skills</a>
+      <a href="#education" class="mobile-link" data-index="05">Education</a>
+      <a href="#publications" class="mobile-link" data-index="06">Publications</a>
+      <a href="#leadership" class="mobile-link" data-index="07">Leadership</a>
+      <a href="#contact" class="mobile-link" data-index="08">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="mailto:tanmaybhlv@gmail.com">tanmaybhlv@gmail.com</a>
+      <div class="mobile-menu-socials">
+        <a href="https://www.linkedin.com/in/tanmaybhalavi" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Tanmaybhlv" target="_blank">GitHub</a>
+        <a href="https://medium.com/@tanmaybhlv" target="_blank">Medium</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       HERO — Photo-centered with scroll signature
+       ============================ -->
+  <section class="hero" id="hero" data-theme="dark">
+    <div class="hero-bg-text" aria-hidden="true">DATA</div>
+    <div class="hero-grid" aria-hidden="true">
+      <div class="hero-grid-line hero-grid-line-h"></div>
+      <div class="hero-grid-line hero-grid-line-h"></div>
+      <div class="hero-grid-line hero-grid-line-v"></div>
+      <div class="hero-grid-line hero-grid-line-v"></div>
+    </div>
+
+    <div class="hero-sticky">
+      <!-- Compact top-left name (Lando-style) -->
+      <div class="hero-name-corner" id="heroNameCorner">
+        <span class="hero-name-first">TANMAY</span>
+        <span class="hero-name-last">BHALAVI</span>
+      </div>
+
+      <!-- Centered photo with signature -->
+      <div class="hero-photo-center" id="heroPhoto">
+        <!-- Background marquees (inside photo so they scale together) -->
+        <div class="hero-marquee-bg" aria-hidden="true">
+          <div class="impact-marquee impact-marquee-1">
+            <div class="impact-marquee-track">
+              <span>BUILDING THE FUTURE OF DATA</span>
+              <span>BUILDING THE FUTURE OF DATA</span>
+              <span>BUILDING THE FUTURE OF DATA</span>
+              <span>BUILDING THE FUTURE OF DATA</span>
+              <span>BUILDING THE FUTURE OF DATA</span>
+              <span>BUILDING THE FUTURE OF DATA</span>
+            </div>
+          </div>
+          <div class="impact-marquee impact-marquee-2">
+            <div class="impact-marquee-track impact-marquee-track-reverse">
+              <span>ENGINEERING AT SCALE</span>
+              <span>ENGINEERING AT SCALE</span>
+              <span>ENGINEERING AT SCALE</span>
+              <span>ENGINEERING AT SCALE</span>
+              <span>ENGINEERING AT SCALE</span>
+              <span>ENGINEERING AT SCALE</span>
+            </div>
+          </div>
+        </div>
+        <img src="assets/img/banner1.png" alt="Tanmay Bhalavi" class="hero-photo-img" id="heroImg">
+        <svg class="hero-signature" id="signatureSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 693" aria-hidden="true">
+          <g transform="translate(0,693) scale(0.1,-0.1)" fill="#0047FF" stroke="none">
+            <path d="M2865 6621 c-107 -22 -211 -79 -284 -156 -63 -67 -81 -107 -81 -183 0 -65 13 -86 51 -80 26 4 35 18 49 74 21 86 110 168 225 209 29 11 91 20 148 23 84 4 107 1 160 -18 63 -23 170 -75 262 -128 258 -149 532 -296 857 -461 59 -30 106 -56 104 -58 -3 -4 -43 -15 -311 -91 -144 -41 -320 -93 -390 -117 -232 -78 -369 -131 -675 -260 -276 -116 -464 -192 -690 -280 -232 -91 -392 -162 -595 -267 -104 -54 -311 -160 -460 -235 -483 -243 -566 -293 -740 -450 -139 -126 -195 -187 -195 -213 0 -29 44 -70 76 -70 19 0 47 20 103 73 156 150 300 239 595 369 192 84 261 117 561 268 171 85 342 170 380 187 39 17 95 43 125 57 31 13 80 34 110 46 30 11 64 25 75 30 11 5 108 44 215 86 107 42 303 123 435 179 544 233 755 308 1410 505 33 10 118 39 189 64 114 41 137 46 215 46 109 0 266 45 439 125 29 14 55 25 57 25 13 0 119 75 155 109 56 53 52 106 -10 126 -28 9 -280 -51 -415 -98 -38 -13 -137 -48 -220 -76 -254 -89 -245 -87 -317 -61 -71 25 -232 104 -388 190 -58 31 -158 85 -223 119 -65 34 -133 70 -150 80 -18 10 -106 61 -197 113 -296 169 -369 198 -510 203 -58 2 -123 0 -145 -4z"/>
+            <path d="M4442 4658 c-34 -37 -43 -74 -36 -147 9 -99 39 -135 77 -93 12 13 17 37 17 77 0 58 0 58 26 34 38 -34 162 -202 210 -284 295 -499 488 -866 732 -1395 22 -47 84 -175 137 -285 53 -110 110 -227 125 -260 15 -33 55 -118 89 -190 34 -71 85 -179 114 -240 66 -142 231 -471 254 -510 10 -16 52 -86 94 -155 42 -69 113 -188 159 -265 136 -229 406 -612 449 -635 32 -16 60 -12 86 15 40 39 32 64 -56 182 -103 139 -236 339 -284 428 -97 182 -134 249 -226 411 -62 110 -181 348 -262 524 -14 30 -53 114 -87 185 -33 72 -84 180 -113 240 -28 61 -95 198 -148 305 -52 107 -127 260 -165 340 -194 406 -406 820 -507 987 -34 57 -66 111 -72 120 -126 223 -324 498 -409 568 -82 67 -165 84 -204 43z"/>
+            <path d="M3265 4582 c-23 -11 -49 -31 -58 -45 -21 -32 -22 -88 -2 -127 21 -40 103 -100 203 -149 156 -75 245 -78 289 -12 13 19 23 49 23 68 0 34 0 34 47 -4 71 -58 150 -159 193 -248 58 -119 58 -117 3 -135 -50 -17 -93 -64 -93 -103 0 -40 48 -104 95 -127 42 -21 57 -22 173 -17 70 3 137 8 148 12 18 6 31 -5 83 -73 33 -44 71 -89 84 -99 25 -20 98 -57 132 -68 16 -6 9 -11 -35 -27 -30 -11 -64 -24 -75 -28 -11 -5 -128 -43 -260 -85 -621 -199 -628 -202 -1238 -519 -60 -31 -161 -77 -225 -102 -65 -25 -123 -51 -130 -57 -7 -6 -12 -24 -10 -41 5 -49 37 -54 143 -21 162 50 306 111 565 237 374 184 375 184 750 308 316 105 502 171 588 211 35 16 65 29 67 29 13 0 177 104 203 128 36 34 41 70 14 95 -25 22 -56 21 -133 -5 -80 -27 -209 -30 -254 -6 -33 18 -76 61 -120 121 -28 38 -28 38 -6 44 13 3 60 24 104 45 139 67 174 105 138 149 -15 18 -24 21 -55 15 -21 -4 -48 -18 -60 -30 -11 -13 -35 -30 -52 -39 -27 -14 -161 -67 -169 -67 -2 0 -25 18 -51 40 -27 22 -77 52 -111 67 -57 25 -63 30 -63 58 0 50 -93 224 -166 309 -106 124 -259 235 -397 288 -78 30 -229 35 -282 10z m234 -108 c24 -8 51 -19 61 -24 26 -14 72 -97 68 -123 -3 -19 -9 -22 -53 -21 -37 0 -72 11 -135 40 -133 63 -193 133 -127 148 35 7 138 -4 186 -20z m651 -660 c22 -9 40 -20 40 -25 0 -5 -31 -9 -70 -9 -74 0 -84 7 -47 33 28 20 29 20 77 1z"/>
+            <path d="M5040 2918 c-81 -23 -90 -29 -90 -59 0 -37 26 -52 71 -39 19 6 63 10 100 10 65 0 65 0 82 -35 9 -20 17 -58 17 -85 0 -59 -24 -83 -101 -99 -108 -23 -175 -10 -347 70 -45 21 -95 47 -111 58 -37 27 -77 27 -91 1 -6 -11 -8 -26 -4 -33 4 -6 40 -61 79 -122 40 -60 99 -161 131 -224 96 -187 150 -231 304 -251 60 -7 63 -6 -75 -35 -44 -9 -93 -21 -110 -26 -16 -5 -102 -29 -190 -54 -256 -71 -410 -127 -745 -270 -294 -125 -556 -239 -622 -269 -31 -14 -60 -26 -63 -26 -12 0 -200 -93 -217 -108 -25 -21 -23 -67 4 -92 12 -11 27 -20 34 -20 6 0 54 20 105 44 52 25 263 110 469 190 206 79 440 169 519 200 281 110 581 204 956 301 165 42 343 97 415 128 48 21 90 64 90 94 0 14 -13 37 -29 54 -28 28 -33 29 -118 29 -48 0 -125 -7 -171 -15 -215 -38 -335 -29 -391 29 -17 17 -62 88 -99 156 -37 69 -77 138 -88 155 -14 22 -15 28 -4 23 195 -79 198 -80 320 -76 104 3 119 6 162 30 67 40 91 84 90 168 0 56 -5 78 -29 121 -38 70 -71 89 -153 88 -36 -1 -81 -6 -100 -11z"/>
+          </g>
+        </svg>
+        <span class="hero-label-tag" id="heroLabel">TB</span>
+      </div>
+
+      <div class="hero-scroll" id="heroScroll">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       MARQUEE — Scroll-velocity reactive
+       ============================ -->
+  <div class="marquee-container">
+    <div class="marquee marquee-left">
+      <div class="marquee-track" id="marqueeTrack1">
+        <span class="marquee-item">Snowflake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Databricks</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Terraform</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airflow</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Delta Lake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Python</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Snowflake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Databricks</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Terraform</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airflow</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Delta Lake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Python</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Snowflake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Databricks</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Terraform</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airflow</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Delta Lake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Python</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Snowflake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Databricks</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Terraform</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airflow</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Delta Lake</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Python</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+    <div class="marquee marquee-right">
+      <div class="marquee-track marquee-track-reverse" id="marqueeTrack2">
+        <span class="marquee-item">SQL</span><span class="marquee-dot"></span>
+        <span class="marquee-item">dbt</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airbyte</span><span class="marquee-dot"></span>
+        <span class="marquee-item">CI/CD</span><span class="marquee-dot"></span>
+        <span class="marquee-item">AWS</span><span class="marquee-dot"></span>
+        <span class="marquee-item">GCP</span><span class="marquee-dot"></span>
+        <span class="marquee-item">SQL</span><span class="marquee-dot"></span>
+        <span class="marquee-item">dbt</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airbyte</span><span class="marquee-dot"></span>
+        <span class="marquee-item">CI/CD</span><span class="marquee-dot"></span>
+        <span class="marquee-item">AWS</span><span class="marquee-dot"></span>
+        <span class="marquee-item">GCP</span><span class="marquee-dot"></span>
+        <span class="marquee-item">SQL</span><span class="marquee-dot"></span>
+        <span class="marquee-item">dbt</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airbyte</span><span class="marquee-dot"></span>
+        <span class="marquee-item">CI/CD</span><span class="marquee-dot"></span>
+        <span class="marquee-item">AWS</span><span class="marquee-dot"></span>
+        <span class="marquee-item">GCP</span><span class="marquee-dot"></span>
+        <span class="marquee-item">SQL</span><span class="marquee-dot"></span>
+        <span class="marquee-item">dbt</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Airbyte</span><span class="marquee-dot"></span>
+        <span class="marquee-item">CI/CD</span><span class="marquee-dot"></span>
+        <span class="marquee-item">AWS</span><span class="marquee-dot"></span>
+        <span class="marquee-item">GCP</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       ABOUT — with impact typography
+       ============================ -->
+  <section class="section about" id="about" data-theme="light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-index">01</span>
+        <h2 class="section-title split-text">About</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-impact">
+          <p class="about-impact-text word-reveal">
+            <span class="word">Transforming</span> <span class="word accent-word">raw data</span> <span class="word">into</span> <span class="word accent-word">reliable</span> <span class="word">platforms.</span> <span class="word">Building</span> <span class="word">infrastructure</span> <span class="word">that</span> <span class="word">powers</span> <span class="word accent-word">business-critical</span> <span class="word">decisions</span> <span class="word">at</span> <span class="word accent-word">scale.</span>
+          </p>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p class="reveal">
+              Currently at <strong>Opendoor</strong>, I own and operate core data platform infrastructure — Snowflake, Databricks, Airflow, Terraform, and the ingestion stack. My work spans from large-scale migrations and cost optimization to SOX compliance, incident response, and cross-functional platform initiatives.
+            </p>
+            <p class="reveal">
+              My journey spans from building ML models during my M.Tech at IIT Kharagpur to leading complex, cross-functional data platform work at a public company. I lean into automation and infrastructure-as-code wherever possible.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat" data-tilt>
+              <span class="stat-number" data-count="4">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat" data-tilt>
+              <span class="stat-number" data-count="10">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">ML &amp; DE Projects</span>
+            </div>
+            <div class="stat" data-tilt>
+              <span class="stat-number" data-count="15">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       EXPERIENCE — Timeline
+       ============================ -->
+  <section class="section experience" id="experience" data-theme="dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-index">02</span>
+        <h2 class="section-title split-text">Experience</h2>
+        <p class="section-subtitle">The journey so far</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"><span class="timeline-marker-pulse"></span></div>
+          <div class="timeline-date">Jan 2025 — Present</div>
+          <a href="https://www.opendoor.com" target="_blank" class="timeline-content">
+            <div class="timeline-company-header">
+              <img src="assets/img/companies/opendoor.png" alt="Opendoor" class="company-logo company-logo--opendoor" width="32" height="32">
+              <div>
+                <h3 class="timeline-role">Data Engineer</h3>
+                <span class="timeline-company">Opendoor</span>
+              </div>
+            </div>
+            <div class="timeline-tech">
+              <span class="tech-tag">Snowflake</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Airbyte</span>
+              <span class="tech-tag">Databricks</span>
+            </div>
+            <ul class="timeline-details">
+              <li>Led Fivetran &rarr; Airbyte migration for ~16 business-critical connectors using Terraform IaC, achieving zero-downtime cutover</li>
+              <li>Core contributor to nationwide MLS data coverage launch — integrating, validating, and stabilizing feeds</li>
+              <li>Owned end-to-end SOX security reviews, implementing scripted, repeatable audit validation</li>
+              <li>Served as DRI for Sev1 data incident — restored critical Snowflake tables within ~5 hours</li>
+              <li>Drove Snowflake &rarr; Databricks ETL migration and tool consolidation</li>
+            </ul>
+          </a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"><span class="timeline-marker-pulse"></span></div>
+          <div class="timeline-date">Nov 2023 — Jan 2025</div>
+          <a href="https://www.opendoor.com" target="_blank" class="timeline-content">
+            <div class="timeline-company-header">
+              <img src="assets/img/companies/opendoor.png" alt="Opendoor" class="company-logo company-logo--opendoor" width="32" height="32">
+              <div>
+                <h3 class="timeline-role">DataOps Engineer</h3>
+                <span class="timeline-company">Opendoor</span>
+              </div>
+            </div>
+            <div class="timeline-tech">
+              <span class="tech-tag">Databricks</span>
+              <span class="tech-tag">Delta Lake</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">CI/CD</span>
+            </div>
+            <ul class="timeline-details">
+              <li>Managed Databricks workflows — syncing Snowflake data with Delta Lake, resolving schema/datatype issues</li>
+              <li>Automated infrastructure provisioning with Terraform, including S3 bucket migrations</li>
+              <li>Built CI/CD pipelines for data workflows, automating deployments and production integration</li>
+              <li>Optimized dashboard SQL queries, significantly reducing query costs</li>
+            </ul>
+          </a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"><span class="timeline-marker-pulse"></span></div>
+          <div class="timeline-date">Jul 2022 — Oct 2023</div>
+          <a href="https://www.searce.com" target="_blank" class="timeline-content">
+            <div class="timeline-company-header">
+              <img src="assets/img/companies/searcelogo_black.png" alt="Searce" class="company-logo" width="32" height="32">
+              <div>
+                <h3 class="timeline-role">Data Engineer</h3>
+                <span class="timeline-company">Searce Inc.</span>
+              </div>
+            </div>
+            <div class="timeline-tech">
+              <span class="tech-tag">GCP</span>
+              <span class="tech-tag">BigQuery</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Big Data</span>
+            </div>
+            <ul class="timeline-details">
+              <li>Created and maintained optimal data pipeline architecture for large, complex datasets</li>
+              <li>Identified and implemented process improvements — automating manual processes, optimizing delivery</li>
+              <li>Built ETL infrastructure from a wide variety of data sources using SQL and Big Data technologies</li>
+            </ul>
+          </a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"><span class="timeline-marker-pulse"></span></div>
+          <div class="timeline-date">Jul 2021 — Jun 2022</div>
+          <a href="https://www.searce.com" target="_blank" class="timeline-content">
+            <div class="timeline-company-header">
+              <img src="assets/img/companies/searcelogo_black.png" alt="Searce" class="company-logo" width="32" height="32">
+              <div>
+                <h3 class="timeline-role">Data & Analytics Practice Engineer</h3>
+                <span class="timeline-company">Searce Inc.</span>
+              </div>
+            </div>
+            <div class="timeline-tech">
+              <span class="tech-tag">Looker Studio</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">GCP</span>
+            </div>
+            <ul class="timeline-details">
+              <li>Transformed raw data into actionable insight through automated data extraction technologies</li>
+              <li>Created management reports including trends, patterns, and predictions</li>
+            </ul>
+          </a>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"><span class="timeline-marker-pulse"></span></div>
+          <div class="timeline-date">2020 — 2021</div>
+          <div class="timeline-content">
+            <div class="timeline-company-header">
+              <div class="company-logo-group">
+                <img src="assets/img/companies/iNeuron.png" alt="iNeuron" class="company-logo company-logo--sm" width="24" height="24">
+                <img src="assets/img/companies/thesparkfoundation1.png" alt="The Sparks Foundation" class="company-logo company-logo--sm" width="24" height="24">
+                <img src="assets/img/companies/bepec.png" alt="BEPEC" class="company-logo company-logo--sm" width="24" height="24">
+              </div>
+              <div>
+                <h3 class="timeline-role">Internships</h3>
+                <span class="timeline-company">iNeuron.ai &middot; MedTourEasy &middot; The Sparks Foundation &middot; BEPEC Solutions</span>
+              </div>
+            </div>
+            <div class="timeline-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Deep Learning</span>
+              <span class="tech-tag">GCP</span>
+              <span class="tech-tag">Tableau</span>
+            </div>
+            <ul class="timeline-details">
+              <li><strong>Deep Learning Engineer @ iNeuron.ai</strong> — Mask detection DL model and robotic arm for COVID monitoring</li>
+              <li><strong>Data Engineer @ MedTourEasy</strong> — Built pipelines on GCP using Dataflow, BigQuery, and Composer</li>
+              <li><strong>Business Analyst @ The Sparks Foundation</strong> — COVID-19 Tableau dashboards and ML clustering</li>
+              <li><strong>Data Scientist @ BEPEC</strong> — Employee attrition prediction model deployed via Flask</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PROJECTS — Horizontal Scroll
+       ============================ -->
+  <section class="horizontal-section" id="projects" data-theme="accent">
+    <div class="horizontal-header">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-index">03</span>
+          <h2 class="section-title split-text">Projects</h2>
+          <p class="section-subtitle">Selected work — scroll to explore</p>
+        </div>
+      </div>
+    </div>
+    <div class="horizontal-track">
+      <div class="horizontal-item">
+        <a href="https://github.com/Tanmaybhlv" target="_blank" class="project-card" data-tilt>
+          <div class="project-card-img">
+            <img src="assets/img/projects/attrition.png" alt="Attrition Predictor" loading="lazy">
+          </div>
+          <div class="project-card-inner">
+            <div class="project-card-shine"></div>
+            <span class="project-number">01</span>
+            <h3 class="project-name">Attrition Predictor</h3>
+            <p class="project-desc">HR analytics with five ML algorithms for employee attrition classification. Feature engineering, model comparison, and deployment pipeline.</p>
+            <div class="project-tags">
+              <span>Python</span><span>Scikit-learn</span><span>Flask</span>
+            </div>
+            <span class="project-arrow">&rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="horizontal-item">
+        <a href="https://tabsoft.co/3kvjWJn" target="_blank" class="project-card" data-tilt>
+          <div class="project-card-img">
+            <img src="assets/img/projects/tableau.png" alt="COVID-19 Dashboards" loading="lazy">
+          </div>
+          <div class="project-card-inner">
+            <div class="project-card-shine"></div>
+            <span class="project-number">02</span>
+            <h3 class="project-name">COVID-19 Dashboards</h3>
+            <p class="project-desc">Interactive data visualization showing COVID-19 impact across India and Asia. Real-time data integration with automated refresh.</p>
+            <div class="project-tags">
+              <span>Tableau</span><span>Data Viz</span><span>Analytics</span>
+            </div>
+            <span class="project-arrow">&rarr;</span>
+          </div>
+        </a>
+      </div>
+      <div class="horizontal-item">
+        <a href="https://www.youtube.com/watch?v=ayNSx7E0AOA" target="_blank" class="project-card" data-tilt>
+          <div class="project-card-img">
+            <img src="assets/img/projects/ISP.png" alt="Cold Supply Chain App" loading="lazy">
+          </div>
+          <div class="project-card-inner">
+            <div class="project-card-shine"></div>
+            <span class="project-number">03</span>
+            <h3 class="project-name">Cold Supply Chain App</h3>
+            <p class="project-desc">Android application for monitoring critical supply chain factors. IoT sensor integration with real-time alerting system.</p>
+            <div class="project-tags">
+              <span>Android</span><span>IoT</span><span>Supply Chain</span>
+            </div>
+            <span class="project-arrow">&rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PINNED PHOTO SECTION — Full-bleed transition
+       ============================ -->
+  <section class="pinned-photo-section" id="pinnedPhoto">
+    <div class="pinned-photo-bg">
+      <img src="assets/img/mountain.jpg" alt="" class="pinned-photo-img" aria-hidden="true">
+      <div class="pinned-photo-overlay"></div>
+    </div>
+    <div class="pinned-photo-text">
+      <p class="pinned-quote">
+        <span class="pinned-word">It</span>
+        <span class="pinned-word">doesn't</span>
+        <span class="pinned-word">matter</span>
+        <span class="pinned-word pinned-accent">where</span>
+        <span class="pinned-word">you</span>
+        <span class="pinned-word">start,</span>
+        <span class="pinned-word">it's</span>
+        <span class="pinned-word pinned-accent">how</span>
+        <span class="pinned-word">you</span>
+        <span class="pinned-word">progress</span>
+        <span class="pinned-word">from</span>
+        <span class="pinned-word">there.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================
+       SKILLS — with fanned cert cards
+       ============================ -->
+  <section class="section skills" id="skills" data-theme="dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-index">04</span>
+        <h2 class="section-title split-text">Skills</h2>
+        <p class="section-subtitle">Tools of the trade</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-category-title">Languages & Frameworks</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">SQL</span><span class="skill-pct">95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">dbt</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">Terraform</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-category-title">Data Infrastructure</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">Snowflake</span><span class="skill-pct">92%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">Databricks / Delta Lake</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">Airflow</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">Airbyte / Fivetran</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="skill-category-title">Cloud & DevOps</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">AWS</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">GCP</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">CI/CD Pipelines</span><span class="skill-pct">82%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header"><span class="skill-name">BigQuery</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================
+       CERTIFICATIONS — Pinned horizontal scroll (Lando-style)
+       ============================ -->
+  <section class="certs-horizontal" id="certsHorizontal">
+    <div class="certs-pin-wrap">
+      <h3 class="certs-title">
+        <span class="certs-title-sans">CERTIFICATIONS</span>
+        <span class="certs-title-serif">Hall of Fame</span>
+      </h3>
+      <div class="certs-track" id="certsFan">
+        <a href="https://www.credential.net/417b2161-c2d7-4c6d-8a03-604de74f1168?key=f42ed263901a3ea3d7af9ec23e097d07f3ecd5c42302a5e2b561d4b33c1064cd" target="_blank" class="cert-fan-card"><img src="assets/img/certs/gcp.svg" alt="GCP" class="cert-logo"><span class="cert-name">Professional ML Engineer</span></a>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/UDC7KC446XW6" target="_blank" class="cert-fan-card"><img src="assets/img/certs/coursera.svg" alt="Coursera" class="cert-logo"><span class="cert-name">Deep Learning Specialization</span></a>
+        <a href="https://academy.ineuron.ai/certificates/downloads/DL012928.pdf" target="_blank" class="cert-fan-card"><img src="assets/img/certs/ineuron.png" alt="iNeuron" class="cert-logo"><span class="cert-name">Deep Learning Masters</span></a>
+        <a href="https://www.credential.net/8b2f4639-2c28-490c-948a-898e55115816?key=473cc429acdd978906c6bbc57c46c6874ef1af314079e7e01fa48e8e77140850&record_view=true" target="_blank" class="cert-fan-card"><img src="assets/img/certs/gcp.svg" alt="GCP" class="cert-logo"><span class="cert-name">Professional Data Engineer</span></a>
+        <a href="http://ude.my/UC-7f55c66a-8a77-4532-afe7-65d573018a88" target="_blank" class="cert-fan-card"><img src="assets/img/certs/tableau.svg" alt="Tableau" class="cert-logo"><span class="cert-name">Tableau A-Z</span></a>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/MEEQEPXXUVTG" target="_blank" class="cert-fan-card"><img src="assets/img/certs/coursera.svg" alt="Coursera" class="cert-logo"><span class="cert-name">ML Specialization (Washington)</span></a>
+        <a href="https://ude.my/UC-64c5ab33-21e9-4443-8662-6c6d719c3717" target="_blank" class="cert-fan-card"><img src="assets/img/certs/udemy.svg" alt="Udemy" class="cert-logo"><span class="cert-name">ROS: Basics &amp; OpenCV</span></a>
+        <a href="https://www.credential.net/cdb39028-f449-426a-be3d-703b81e88320?key=8c1465ca338003fd1dcf4b3c45736a97f4604c270885c99f4501e48c87f94c45" target="_blank" class="cert-fan-card"><img src="assets/img/certs/gcp.svg" alt="GCP" class="cert-logo"><span class="cert-name">Associate Cloud Engineer</span></a>
+        <a href="https://academy.ineuron.ai/certificates/downloads/ML005069.pdf" target="_blank" class="cert-fan-card"><img src="assets/img/certs/ineuron.png" alt="iNeuron" class="cert-logo"><span class="cert-name">ML Masters</span></a>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/UDH4CGXK7RQ3" target="_blank" class="cert-fan-card"><img src="assets/img/certs/coursera.svg" alt="Coursera" class="cert-logo"><span class="cert-name">Statistics with Python</span></a>
+        <a href="http://ude.my/UC-6e35b4ba-9241-49a7-ac7d-4689d0dd21ab" target="_blank" class="cert-fan-card"><img src="assets/img/certs/udemy.svg" alt="Udemy" class="cert-logo"><span class="cert-name">SQL for Data Analytics</span></a>
+        <a href="http://coursera.org/verify/KATFRUHLR5W4" target="_blank" class="cert-fan-card"><img src="assets/img/certs/gcp.svg" alt="GCP" class="cert-logo"><span class="cert-name">Big Data Fundamentals</span></a>
+        <a href="https://coursera.org/share/022909f433f49b9b95d97ba0d932f49d" target="_blank" class="cert-fan-card"><img src="assets/img/certs/coursera.svg" alt="Coursera" class="cert-logo"><span class="cert-name">Applied ML in Python</span></a>
+        <a href="https://www.linkedin.com/in/tanmaybhalavi/details/certifications/" target="_blank" class="cert-fan-card"><img src="assets/img/certs/udemy.svg" alt="Udemy" class="cert-logo"><span class="cert-name">Time Series Analysis</span></a>
+        <a href="https://www.qwiklabs.com/public_profiles/e69d9003-425c-4443-93b2-0fdcb1de2d1e" target="_blank" class="cert-fan-card"><img src="assets/img/certs/gcp.svg" alt="GCP" class="cert-logo"><span class="cert-name">Engineer Data in Google Cloud</span></a>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/YWGRKXSUQQVH" target="_blank" class="cert-fan-card"><img src="assets/img/certs/coursera.svg" alt="Coursera" class="cert-logo"><span class="cert-name">Mathematics for ML</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       EDUCATION
+       ============================ -->
+  <section class="section education" id="education" data-theme="light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-index">05</span>
+        <h2 class="section-title split-text">Education</h2>
+      </div>
+
+      <div class="education-grid">
+        <a href="https://www.iitkgp.ac.in" target="_blank" class="edu-card" data-tilt>
+          <div class="edu-card-shine"></div>
+          <div class="edu-card-top">
+            <img src="assets/img/education/IIT_Kharagpur_Logo.png" alt="IIT Kharagpur" class="edu-logo" width="48" height="48">
+            <div>
+              <div class="edu-year">2019 — 2021</div>
+              <h3 class="edu-degree">M.Tech Industrial Engineering & Management</h3>
+              <span class="edu-school">Indian Institute of Technology, Kharagpur</span>
+            </div>
+          </div>
+          <p class="edu-thesis">Thesis: Network Intrusion Detection using Machine Learning</p>
+        </a>
+
+        <a href="https://www.rgpv.ac.in" target="_blank" class="edu-card" data-tilt>
+          <div class="edu-card-shine"></div>
+          <div class="edu-card-top">
+            <img src="assets/img/education/rgpv.png" alt="RGPV" class="edu-logo" width="48" height="48">
+            <div>
+              <div class="edu-year">2014 — 2018</div>
+              <h3 class="edu-degree">B.E. Mechanical Engineering</h3>
+              <span class="edu-school">Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal</span>
+            </div>
+          </div>
+          <p class="edu-thesis">Thesis: Principles of Applied Heat Transfer</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PUBLICATIONS
+       ============================ -->
+  <section class="section publications" id="publications" data-theme="dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-index">06</span>
+        <h2 class="section-title split-text">Publications</h2>
+        <p class="section-subtitle">Research & academic contributions</p>
+      </div>
+
+      <div class="publications-grid">
+        <a href="https://ieeexplore.ieee.org/document/9715212" target="_blank" class="pub-card" data-tilt>
+          <div class="pub-card-shine"></div>
+          <div class="pub-type">IEEE Conference Paper</div>
+          <h3 class="pub-title">Network Intrusion Detection using Principal Component &mdash; Mahalanobis Taguchi System (PC-MTS) Approach</h3>
+          <p class="pub-venue">IEEE &middot; Feb 2022</p>
+          <p class="pub-desc">Proposed a novel hybrid approach combining PCA with the Mahalanobis-Taguchi System for detecting network intrusions.</p>
+          <div class="pub-tags">
+            <span>Machine Learning</span><span>Network Security</span><span>PCA</span>
+          </div>
+        </a>
+
+        <a href="https://journals.sagepub.com/doi/10.1177/204124791700800203" target="_blank" class="pub-card" data-tilt>
+          <div class="pub-card-shine"></div>
+          <div class="pub-type">Review Paper</div>
+          <h3 class="pub-title">Natural Fibre Reinforced Polymer Composite Materials &mdash; A Review</h3>
+          <p class="pub-venue">Smithers Rapra &middot; May 2017</p>
+          <p class="pub-desc">Comprehensive review of natural fibre reinforced polymer composite materials, analyzing mechanical properties and industrial applications.</p>
+          <div class="pub-tags">
+            <span>Materials Science</span><span>Composites</span><span>Review</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       LEADERSHIP
+       ============================ -->
+  <section class="section leadership" id="leadership" data-theme="light">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-index">07</span>
+        <h2 class="section-title split-text">Leadership</h2>
+        <p class="section-subtitle">Volunteering & extracurriculars</p>
+      </div>
+
+      <div class="leadership-grid">
+        <a href="https://web.mitsgwalior.in/societies-clubs/iste-students-chapter" target="_blank" class="leadership-card" data-tilt>
+          <div class="leadership-card-shine"></div>
+          <div class="leadership-badge">Best ISTE Chapter Award</div>
+          <h3 class="leadership-role">President</h3>
+          <span class="leadership-org">ISTE Students' Chapter</span>
+          <span class="leadership-date">Apr 2017 — May 2018</span>
+          <p class="leadership-desc">Led the ISTE Students' Chapter to win the prestigious "Best ISTE Chapter" award. Organized technical workshops, guest lectures, and inter-college competitions.</p>
+        </a>
+
+        <a href="https://web.mitsgwalior.in/societies-clubs/iste-students-chapter" target="_blank" class="leadership-card" data-tilt>
+          <div class="leadership-card-shine"></div>
+          <h3 class="leadership-role">Coordinator</h3>
+          <span class="leadership-org">ISTE Students' Chapter</span>
+          <span class="leadership-date">Apr 2016 — Mar 2017</span>
+          <p class="leadership-desc">Coordinated technical events and workshops for the student community. Managed logistics, sponsorships, and inter-departmental collaboration.</p>
+        </a>
+
+        <a href="https://nss.gov.in/en" target="_blank" class="leadership-card" data-tilt>
+          <div class="leadership-card-shine"></div>
+          <h3 class="leadership-role">Awareness Volunteer</h3>
+          <span class="leadership-org">National Service Scheme (NSS)</span>
+          <span class="leadership-date">Mar 2017</span>
+          <p class="leadership-desc">Participated in community awareness campaigns as part of NSS, focusing on social causes and community development.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CONTACT — with accent gradient bg
+       ============================ -->
+  <section class="section contact" id="contact" data-theme="dark">
+    <div class="container">
+      <div class="contact-inner">
+        <span class="section-index">08</span>
+        <h2 class="contact-title">
+          <span class="contact-title-line">ALWAYS <span class="contact-accent">BUILDING</span></span>
+          <span class="contact-title-line">THE <span class="contact-accent">FUTURE.</span></span>
+        </h2>
+        <div class="contact-links">
+          <a href="mailto:tanmaybhlv@gmail.com" class="contact-link-item magnetic" data-strength="5">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">tanmaybhlv@gmail.com</span>
+            <span class="contact-link-arrow">&rarr;</span>
+          </a>
+          <a href="https://www.linkedin.com/in/tanmaybhalavi" target="_blank" class="contact-link-item magnetic" data-strength="5">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">tanmaybhalavi</span>
+            <span class="contact-link-arrow">&rarr;</span>
+          </a>
+          <a href="https://github.com/Tanmaybhlv" target="_blank" class="contact-link-item magnetic" data-strength="5">
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">Tanmaybhlv</span>
+            <span class="contact-link-arrow">&rarr;</span>
+          </a>
+          <a href="https://medium.com/@tanmaybhlv" target="_blank" class="contact-link-item magnetic" data-strength="5">
+            <span class="contact-link-label">Medium</span>
+            <span class="contact-link-value">@tanmaybhlv</span>
+            <span class="contact-link-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER — Notched top, accent gradient
+       ============================ -->
+  <div class="footer-gradient-bg"></div>
+  <footer class="footer">
+    <div class="footer-notch" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">TB</span>
+        <span class="footer-copy">&copy; 2026 Tanmay Bhalavi. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/tanmaybhalavi" target="_blank" class="magnetic" data-strength="10">Li</a>
+          <a href="https://github.com/Tanmaybhlv" target="_blank" class="magnetic" data-strength="10">Gh</a>
+          <a href="https://medium.com/@tanmaybhlv" target="_blank" class="magnetic" data-strength="10">Md</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
