@@ -1,20 +1,18 @@
 # Snowflake Cost Intelligence Platform
-
+<p align="center">
+  <img src="images/architecture.svg" width="900">
+</p>
 > An internal engineering platform built to replace SELECT.dev by providing AI-assisted Snowflake cost analysis, query optimization, and warehouse intelligence.
 
 ---
 
-**Role:** Data Engineer
+| **Role** | Data Engineer |
+|----------|---------------|
+| **Project Type** | Internal Engineering Platform |
+| **Status** | Production |
+| **Tech Stack** | Python · Snowflake · OpenAI API · OAuth |
 
-**Duration:** 2026
-
-**Status:** Production Internal Tool
-
-**Tech Stack**
-
-Python • Snowflake • OpenAI API • OAuth • Streamlit
-
-## 📌 Project Overview
+## 📄 Executive Summary
 
 When SELECT.dev was removed from our Snowflake agreement, the engineering team needed an internal alternative to continue monitoring warehouse costs and identifying inefficient query patterns.
 
@@ -38,13 +36,20 @@ The objective was to build an internal solution that could:
 
 ## 🏗️ Solution Architecture
 
-> **Architecture diagram coming soon.**
+The platform follows a modular architecture that separates data collection, processing, AI-assisted analysis, recommendation management, and user interaction. This separation allows each component to evolve independently while maintaining a reliable and scalable workflow.
 
-The following diagram illustrates how query metadata flows from Snowflake into the recommendation engine and eventually to the dashboard.
+<p align="center">
+  <img src="images/architecture.svg" alt="Snowflake Cost Intelligence Platform Architecture" width="900">
+</p>
 
-```
-(We'll replace this section with an architecture diagram.)
-```
+**High-Level Flow**
+
+1. Snowflake query history and warehouse usage data are collected through a scheduled Python pipeline.
+2. Query metadata is processed to identify high-cost or inefficient workloads.
+3. The AI Analysis Engine evaluates candidate queries and provides optimization insights.
+4. The Recommendation Engine converts those insights into actionable recommendations.
+5. Recommendations are stored centrally and surfaced through the dashboard for engineering review.
+6. Engineers review, validate, and manage recommendations through a structured workflow.
 
 ---
 
@@ -65,6 +70,25 @@ The platform operates as a daily scheduled workflow.
    - Keep As Is
    - Ignored
 8. Reviewed recommendations are excluded from future analysis unless new execution patterns are detected.
+
+### Recommendation Lifecycle
+
+Each AI-generated recommendation progressed through a review workflow before being considered complete.
+
+```text
+Pending
+    │
+    ▼
+Reviewed
+    │
+    ▼
+Optimized
+    │
+    ├── Keep As Is
+    └── Ignored
+```
+
+Once a recommendation was reviewed, its status was persisted in the Recommendation Store to prevent it from being surfaced repeatedly during subsequent analyses.
 
 ---
 
