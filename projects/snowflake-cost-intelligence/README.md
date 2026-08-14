@@ -1,7 +1,5 @@
 # Snowflake Cost Intelligence Platform
-<p align="center">
-  <img src="images/architecture.svg" width="900">
-</p>
+
 > An internal engineering platform built to replace SELECT.dev by providing AI-assisted Snowflake cost analysis, query optimization, and warehouse intelligence.
 
 ---
