@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="qmI2rM-OyGTsaBNyXtVq">
+    <mxGraphModel dx="2054" dy="1182" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-6" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;📦&amp;nbsp;&lt;/span&gt;dbt Models&lt;div&gt;(Data Models + Metadata)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="180" x="310" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-7" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;🔍&amp;nbsp;&lt;/span&gt;Usage &amp;amp; Lineage Analysis&lt;div&gt;(Snowflake + SelectStar)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="220" x="290" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-8" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-9" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;🎯&amp;nbsp;&lt;/span&gt;Priority Classification&lt;div&gt;(P0&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;span style=&quot;caret-color: rgb(0, 0, 0); text-align: start;&quot;&gt;• P1 • P2 • P3)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="180" x="310" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-11" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;⚡&lt;/span&gt;Optimize" vertex="1">
+          <mxGeometry height="60" width="120" x="260" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-12" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;🗂️&amp;nbsp;&lt;/span&gt;Deprecate" vertex="1">
+          <mxGeometry height="60" width="120" x="420" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-14" edge="1" parent="1" source="ji8le-8u6JstZCPe7QoJ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ji8le-8u6JstZCPe7QoJ-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;✅&amp;nbsp;&lt;/span&gt;Platform Validation&lt;div&gt;(&lt;span style=&quot;caret-color: rgb(0, 0, 0); text-align: start; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Airflow • CI/CD • Snowflake&lt;/span&gt;)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="310" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="ji8le-8u6JstZCPe7QoJ-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0); text-align: start;&quot;&gt;🚀&amp;nbsp;&lt;/span&gt;Optimised Analytics Platform" vertex="1">
+          <mxGeometry height="60" width="140" x="330" y="550" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
